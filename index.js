@@ -16,14 +16,14 @@ function mostrarNivel() {
     let nivelRestante = 100 - miNivel
 
     //resultado.innerHTML=`Mi nivel : ${miNivel} <br>`
-    resultado.innerHTML = `Remaining levels :  ${nivelRestante} <br>`
+    resultado.innerHTML = `Remaining :  ${nivelRestante}% <br>`
 
     return (nivelRestante)
 }
 
 function tiempoRestante(nivelRestante) {
     let ahora = new Date;
-    let limite = new Date("december 1, 2021 6:00:00")/* 08/10/2021 6:00 AM */
+    let limite = new Date("february 1, 2023 11:00:00")/* 2/1/2023 11:00 AM */
     let diff = limite - ahora
 
     let resultado = document.getElementById("resultado")
@@ -36,8 +36,8 @@ function tiempoRestante(nivelRestante) {
     let nivelHora = ((nivelRestante / diff) * 3600000).toFixed(5)
     let nivelMinuto = ((nivelRestante / diff) * 60000).toFixed(5)
 
-    resultado.innerHTML += `Levels per day : ${nivelDia} <br>`
-    resultado.innerHTML += `Levels per hour : ${nivelHora} <br>`
+    resultado.innerHTML += `% per day : ${nivelDia}%<br>`
+    resultado.innerHTML += `% per hour : ${nivelHora}%<br>`
     /* resultado.innerHTML+=`Levels per minute : ${nivelMinuto} <br>` */
 }
 
