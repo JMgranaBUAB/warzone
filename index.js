@@ -38,7 +38,7 @@ function tiempoRestante(nivelRestante) {
 
     resultado.innerHTML += `% per day : ${nivelDia}%<br>`
     resultado.innerHTML += `% per hour : ${nivelHora}%<br>`
-    /* resultado.innerHTML+=`Levels per minute : ${nivelMinuto} <br>` */
+    resultado.innerHTML += `% per minute : ${nivelMinuto}% <br>`
 }
 
 
