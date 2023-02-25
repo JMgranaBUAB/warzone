@@ -23,7 +23,7 @@ function mostrarNivel() {
 
 function tiempoRestante(nivelRestante) {
     let ahora = new Date;
-    let limite = new Date("April 15, 2023 19:00:00")/* 2/1/2023 11:00 AM */
+    let limite = new Date("April 6, 2023 19:00:00")/* 2/1/2023 11:00 AM */
     let diff = limite - ahora
 
     let resultado = document.getElementById("resultado")
