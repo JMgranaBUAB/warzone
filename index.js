@@ -16,7 +16,13 @@ function mostrarNivel() {
     let nivelRestante = 100 - miNivel
 
     //resultado.innerHTML=`Mi nivel : ${miNivel} <br>`
-    resultado.innerHTML = `Remaining :  ${nivelRestante}% <br>`
+    /* resultado.innerHTML = `Remaining :  ${nivelRestante}% <br>` */
+
+    let minutosTotales = nivelRestante * 30;
+    let horas = Math.floor(minutosTotales / 60);
+    let minutos = Math.floor(minutosTotales % 60);
+
+    resultado.innerHTML = `Tiempo necesario en partida: ${horas}h ${minutos}min<br>`;
 
     return (nivelRestante)
 }
@@ -36,9 +42,9 @@ function tiempoRestante(nivelRestante) {
     let nivelHora = ((nivelRestante / diff) * 3600000).toFixed(5)
     let nivelMinuto = ((nivelRestante / diff) * 60000).toFixed(5)
 
-    resultado.innerHTML += `% per day : ${nivelDia}%<br>`
-    resultado.innerHTML += `% per hour : ${nivelHora}%<br>`
-    resultado.innerHTML += `% per minute : ${nivelMinuto}% <br>`
+    resultado.innerHTML += `Levels per day : ${nivelDia}%<br>`
+    resultado.innerHTML += `Levels per hour : ${nivelHora}%<br>`
+    resultado.innerHTML += `Levels per minute : ${nivelMinuto}% <br>`
 }
 
 
