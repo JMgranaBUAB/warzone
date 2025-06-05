@@ -22,7 +22,7 @@ function mostrarNivel() {
     let horas = Math.floor(minutosTotales / 60);
     let minutos = Math.floor(minutosTotales % 60);
 
-    resultado.innerHTML = `Tiempo necesario en partida: ${horas}h ${minutos}min<br>`;
+    resultado.innerHTML = `Time needed in game : ${horas}h ${minutos}min<br>`;
 
     return (nivelRestante)
 }
