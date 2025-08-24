@@ -1,5 +1,16 @@
+// Cargar el nivel guardado al iniciar la página
+document.addEventListener('DOMContentLoaded', function() {
+    cargarNivelGuardado();
+});
+
 let enviarNivel = document.getElementById("enviarNivel");
 enviarNivel.onclick = newEvent;
+
+// Guardar el nivel cada vez que se cambie el input
+let inputNivel = document.getElementById("miNivel");
+inputNivel.addEventListener('input', function() {
+    guardarNivel(this.value);
+});
 
 async function newEvent() {
     let nivelRestante = await mostrarNivel();
@@ -7,6 +18,23 @@ async function newEvent() {
 }
 
 setInterval(newEvent, 1000);
+
+// Función para guardar el nivel en localStorage
+function guardarNivel(nivel) {
+    localStorage.setItem('warzone_nivel', nivel);
+    console.log('Nivel guardado:', nivel);
+}
+
+// Función para cargar el nivel desde localStorage
+function cargarNivelGuardado() {
+    let nivelGuardado = localStorage.getItem('warzone_nivel');
+    if (nivelGuardado !== null && nivelGuardado !== '') {
+        document.getElementById("miNivel").value = nivelGuardado;
+        console.log('Nivel cargado:', nivelGuardado);
+        // Ejecutar el cálculo automáticamente si hay un nivel guardado
+        newEvent();
+    }
+}
 
 function mostrarNivel() {
     let miNivel = document.getElementById("miNivel").value
@@ -46,5 +74,3 @@ function tiempoRestante(nivelRestante) {
     resultado.innerHTML += `Levels per hour : ${nivelHora}%<br>`
     resultado.innerHTML += `Levels per minute : ${nivelMinuto}% <br>`
 }
-
-
