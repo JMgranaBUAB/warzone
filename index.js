@@ -6,10 +6,31 @@ document.addEventListener('DOMContentLoaded', function() {
 let enviarNivel = document.getElementById("enviarNivel");
 enviarNivel.onclick = newEvent;
 
+// Botones de subir y bajar nivel
+let subirNivel = document.getElementById("subirNivel");
+let bajarNivel = document.getElementById("bajarNivel");
+
 // Guardar el nivel cada vez que se cambie el input
 let inputNivel = document.getElementById("miNivel");
 inputNivel.addEventListener('input', function() {
     guardarNivel(this.value);
+});
+
+// Funcionalidad de los botones de subir y bajar nivel
+subirNivel.addEventListener('click', function() {
+    let nivelActual = parseInt(inputNivel.value) || 0;
+    let nuevoNivel = Math.min(nivelActual + 1, 100); // Máximo 100
+    inputNivel.value = nuevoNivel;
+    guardarNivel(nuevoNivel.toString());
+    newEvent(); // Actualizar cálculos automáticamente
+});
+
+bajarNivel.addEventListener('click', function() {
+    let nivelActual = parseInt(inputNivel.value) || 0;
+    let nuevoNivel = Math.max(nivelActual - 1, 0); // Mínimo 0
+    inputNivel.value = nuevoNivel;
+    guardarNivel(nuevoNivel.toString());
+    newEvent(); // Actualizar cálculos automáticamente
 });
 
 async function newEvent() {
